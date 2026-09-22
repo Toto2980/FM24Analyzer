@@ -1,0 +1,22 @@
+{
+  "video": "videos\\2026-09-22 18-50-52.mp4",
+  "sample_every_s": 0.5,
+  "min_segment_s": 1.0,
+  "segments": [
+    {
+      "start_s": 0.0,
+      "end_s": 66.5,
+      "status": "PITCH"
+    },
+    {
+      "start_s": 66.5,
+      "end_s": 67.5,
+      "status": "EXCLUDED"
+    },
+    {
+      "start_s": 67.5,
+      "end_s": 194.5,
+      "status": "PITCH"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "video": "videos\\2026-09-22 18-50-52.mp4",
+  "roi": {
+    "x": 367,
+    "y": 50,
+    "width": 1186,
+    "height": 849,
+    "samples_used": 14,
+    "samples_total": 14
+  },
+  "token_radius_px": {
+    "median": 7.300000190734863,
+    "p25": 6.199999809265137,
+    "p75": 8.899999618530273,
+    "n": 55
+  },
+  "ring": {
+    "inner_px": 4.38,
+    "outer_px": 6.57
+  },
+  "team_split": {
+    "threshold": 152.86260822510823,
+    "group_a": {
+      "mean_v": 91.09642857142858,
+      "n": 140
+    },
+    "group_b": {
+      "mean_v": 214.62878787878788,
+      "n": 66
+    }
+  },
+  "racing_is": "group_b",
+  "racing_is_reasoning": "group_b es el cluster claro (V medio 214.6, blanco/gris). El escudo de Racing en el marcador es celeste/blanco; el de All Boys, negro/dorado (oscuro). Coincide con el panel de alineación de Racing (9 de 11 camisetas claras). Verificado visualmente el 22/09/2026; pendiente de que Toto lo confirme mirando el partido."
+}

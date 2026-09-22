@@ -3,12 +3,15 @@ videos/
 
 # Salidas generadas: se regeneran corriendo los scripts
 output/*
-# ...excepto la línea base de regresión (HU-03)
+# ...excepto la línea base de regresión (HU-03), los tramos sin
+# cancha (HU-41) y la calibración por video (HU-40): son evidencia
+# medida, no basura regenerable sin el video original.
 !output/baseline_31f/
 output/baseline_31f/*.jpg
+!output/pitch_segments/
+!output/calibration/
 
 runs/
 __pycache__/
 *.pyc
 .venv/
-!output/pitch_segments/
