@@ -1,0 +1,12 @@
+{
+  "video": "videos\\partido_prueba.mp4",
+  "sample_every_s": 0.5,
+  "min_segment_s": 1.0,
+  "segments": [
+    {
+      "start_s": 0.0,
+      "end_s": 72.5,
+      "status": "PITCH"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "video": "videos\\2026-09-22 17-27-45.mp4",
+  "sample_every_s": 0.5,
+  "min_segment_s": 1.0,
+  "segments": [
+    {
+      "start_s": 0.0,
+      "end_s": 31.0,
+      "status": "PITCH"
+    },
+    {
+      "start_s": 31.0,
+      "end_s": 39.5,
+      "status": "EXCLUDED"
+    },
+    {
+      "start_s": 39.5,
+      "end_s": 74.0,
+      "status": "PITCH"
+    },
+    {
+      "start_s": 74.0,
+      "end_s": 125.0,
+      "status": "EXCLUDED"
+    },
+    {
+      "start_s": 125.0,
+      "end_s": 237.5,
+      "status": "PITCH"
+    },
+    {
+      "start_s": 237.5,
+      "end_s": 242.0,
+      "status": "EXCLUDED"
+    },
+    {
+      "start_s": 242.0,
+      "end_s": 257.5,
+      "status": "PITCH"
+    }
+  ]
+}
