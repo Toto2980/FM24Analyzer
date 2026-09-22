@@ -1,7 +1,7 @@
 # FM24Analyzer
 ## Especificación de Requerimientos de Software (SRS)
 
-**Versión:** 0.1 (borrador para revisión del cliente)
+**Versión:** 0.2 (borrador para revisión del cliente)
 **Fecha:** 22/09/2026
 **Cliente / usuario principal:** Tobias Locastro
 **Analista / desarrollo:** Tobias Locastro + Claude
@@ -19,6 +19,7 @@
 | Versión | Fecha | Cambio | Autor |
 |---|---|---|---|
 | 0.1 | 22/09/2026 | Primer borrador a partir del informe maestro y la auditoría de 31 frames | Claude |
+| 0.2 | 22/09/2026 | Equipo propio = Racing. Nuevo módulo INT (lectura de la interfaz de FM24) tomado de la idea original del proyecto (`Analizar20de20Manager.md`). RF-15 (descartar frames sin partido) por evidencia del clip nuevo. D-08 resuelta: repo público | Claude |
 
 ## Cómo leer este documento
 
@@ -90,7 +91,7 @@ FM24Analyzer es una aplicación **local** para Windows. Recibe una grabación de
 | **Gating** | Descarte de asociaciones que superan una distancia máxima (`MAX_DISTANCE`) |
 | **Coast mode** | Mantener vivo un track durante N frames sin detección, estimando su posición |
 | **ID switch** | Error en el que dos tracks intercambian sus identidades |
-| **Equipo propio** | El equipo del usuario en el video (en el clip de prueba, el equipo etiquetado "RACING") |
+| **Equipo propio** | El equipo del usuario en el video: **Racing**. En el clip de prueba (20/09) Racing juega de azul oscuro; en el clip del 22/09, de blanco. El color **no** identifica al equipo: se configura por video |
 | **Coordenadas normalizadas** | Posición en la cancha expresada en [0,1] × [0,1], independiente de la resolución del video |
 | **Dataset de referencia** | Conjunto de frames con posiciones e identidades etiquetadas a mano, usado para medir la exactitud |
 | **MVP** | Mínimo producto viable: la versión más chica que ya resuelve la necesidad principal del usuario (§10) |
@@ -407,6 +408,7 @@ Formato: **ID · Prioridad · Requisito · Criterio de verificación**.
 | RF-12 | M | El sistema debe clasificar cada detección en EQUIPO_PROPIO, RIVAL o GK a partir del color de la **zona de camiseta de la ficha, excluyendo el dorsal** | RNF-02. Caso de regresión: Rival #10 en los frames 10–28 del clip de prueba |
 | RF-13 | M | El sistema debe detectar fichas parcialmente tapadas por la etiqueta de nombre, o marcar explícitamente que el track está ocluido (ver RF-32) | Caso de regresión: Racing #10 en los frames 24–30 del clip de prueba |
 | RF-14 | S | Cada detección debe registrar su fuente (normal / sensitive / goalkeeper) y una medida de confianza | Campo presente en la salida |
+| RF-15 | M | El sistema debe detectar los tramos del video en los que **no se ve la cancha** (menús, preferencias, pantallas de configuración) y excluirlos del análisis, registrándolos en el informe de calidad | Clip 22/09: los tramos 1:14–2:05 (menú de Preferencias) y 0:31–0:40 (panel de cámara) salen marcados como excluidos |
 
 ## 7.3. Módulo IDN — Identificación
 
@@ -475,7 +477,22 @@ Todas las métricas se calculan por equipo, por segmento de tiempo y **solo con 
 | RF-80 | M | El sistema debe generar un informe HTML local, autocontenido (abre sin internet), con: resumen de calidad, posiciones medias de ambos equipos sobre la cancha, métricas RF-50 a RF-54, series temporales de RF-56 y mapas de calor de RF-55 | El informe abre con doble clic |
 | RF-81 | S | El informe debe indicar de forma visible los segmentos con calidad insuficiente (cobertura < umbral de RNF-04) | Segmento degradado marcado en el informe |
 
-## 7.10. Módulo EVT — Eventos (Post-MVP, referencia)
+## 7.10. Módulo INT — Lectura de la interfaz de FM24
+
+Viene de la idea original del proyecto: además de la cancha, la pantalla de FM24 muestra datos que dan **identidad y contexto** sin tener que inferirlos. El panel inferior de la vista de partido lista cada posición con el nombre y el dorsal del jugador, y la táctica configurada (ej. "4-3-3 MC ABIERTO POSITIVA").
+
+| ID | P | Requisito | Verificación |
+|---|---|---|---|
+| RF-100 | S | El sistema debe leer del panel inferior la alineación del equipo propio: posición nominal (POR, DFD, DFCD, …), nombre y dorsal | Clip 22/09: las 11 posiciones de Racing leídas correctamente |
+| RF-101 | S | El sistema debe usar la alineación de RF-100 para asignar a cada track del equipo propio su **nombre y posición nominal**, a partir del dorsal | Cada track de Racing tiene nombre y posición nominal |
+| RF-102 | S | El sistema debe leer la formación y la mentalidad configuradas (ej. "4-3-3", "Positiva") | Texto leído igual al de la pantalla |
+| RF-103 | C | El sistema debe comparar la **estructura configurada** con la **estructura observada** (posiciones medias) e informar la diferencia (ej. "4-3-3 configurado, 3-2-5 observado con pelota") | Depende de RF-57 y RF-93 |
+| RF-104 | C | El sistema debe detectar sustituciones (cambio en el panel o aparición de un dorsal nuevo) | Caso con una sustitución grabada |
+| RF-105 | W (v1.0) | Leer las estadísticas finales del partido (posesión, tiros, xG) de la pantalla de resultados | — |
+
+> **Regla de inferencia:** lo que se lee de la pantalla (formación configurada, alineación) se presenta como **dato**. Lo que se deduce (motivo de una suplencia, intención táctica) se presenta como **inferencia**, con esa etiqueta, nunca como hecho.
+
+## 7.11. Módulo EVT — Eventos (Post-MVP, referencia)
 
 | ID | P | Requisito |
 |---|---|---|
@@ -627,7 +644,8 @@ La versión 1.0 de esta SRS no se aprueba hasta resolver estos puntos:
 | D-05 | ¿Qué dimensiones de cancha usamos (RF-41)? | 105 × 68 m |
 | D-06 | ¿Qué largo tienen los clips que vas a analizar habitualmente: fragmentos o partido completo? | Fragmentos de 1–5 min para el MVP |
 | D-07 | ¿La salida con / sin pelota (RF-57) es imprescindible para que el MVP te sirva? | No para el MVP. Primer ítem post-MVP |
-| D-08 | ¿Repositorio público en GitHub (portfolio / Plan IT) o privado? | Público cuando llegue a v0.1 con README |
+| D-08 | ~~¿Repositorio público o privado?~~ | **Resuelta 22/09:** público — github.com/Toto2980/FM24Analyzer |
+| D-09 | ¿Se graba siempre con la misma cámara y el mismo zoom ("2D Clásico")? | Sí: fijar un zoom y no cambiarlo. Cambia el tamaño de las fichas y el recorte de la cancha |
 
 ---
 
