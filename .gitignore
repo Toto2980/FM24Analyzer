@@ -1,0 +1,13 @@
+# Videos: pesados y no se versionan (ver README para cómo conseguir el clip de prueba)
+videos/
+
+# Salidas generadas: se regeneran corriendo los scripts
+output/*
+# ...excepto la línea base de regresión (HU-03)
+!output/baseline_31f/
+output/baseline_31f/*.jpg
+
+runs/
+__pycache__/
+*.pyc
+.venv/

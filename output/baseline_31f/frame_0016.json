@@ -1,0 +1,491 @@
+{
+    "match": {
+        "frame": 16,
+        "timestamp_ms": 533.3333333333334
+    },
+    "players": [
+        {
+            "track_id": 0,
+            "identity": {
+                "team": "RIVAL",
+                "role": "PLAYER",
+                "number": 11,
+                "confidence": {
+                    "score": null,
+                    "gap": null,
+                    "status": "KNOWN"
+                }
+            },
+            "state": {
+                "frame": 16,
+                "timestamp_ms": 533.3333333333334,
+                "x": 609,
+                "y": 102,
+                "radius": 7,
+                "dx": 0,
+                "dy": 0,
+                "distance": 0.0
+            }
+        },
+        {
+            "track_id": 1,
+            "identity": {
+                "team": "RIVAL",
+                "role": "PLAYER",
+                "number": 2,
+                "confidence": {
+                    "score": null,
+                    "gap": null,
+                    "status": "KNOWN"
+                }
+            },
+            "state": {
+                "frame": 16,
+                "timestamp_ms": 533.3333333333334,
+                "x": 753,
+                "y": 112,
+                "radius": 8,
+                "dx": 0,
+                "dy": 0,
+                "distance": 0.0
+            }
+        },
+        {
+            "track_id": 2,
+            "identity": {
+                "team": "RACING",
+                "role": "PLAYER",
+                "number": 3,
+                "confidence": {
+                    "score": null,
+                    "gap": null,
+                    "status": "KNOWN"
+                }
+            },
+            "state": {
+                "frame": 16,
+                "timestamp_ms": 533.3333333333334,
+                "x": 503,
+                "y": 178,
+                "radius": 7,
+                "dx": 0,
+                "dy": 0,
+                "distance": 0.0
+            }
+        },
+        {
+            "track_id": 3,
+            "identity": {
+                "team": "RACING",
+                "role": "PLAYER",
+                "number": 7,
+                "confidence": {
+                    "score": null,
+                    "gap": null,
+                    "status": "KNOWN"
+                }
+            },
+            "state": {
+                "frame": 16,
+                "timestamp_ms": 533.3333333333334,
+                "x": 573,
+                "y": 188,
+                "radius": 7,
+                "dx": 0,
+                "dy": 0,
+                "distance": 0.0
+            }
+        },
+        {
+            "track_id": 4,
+            "identity": {
+                "team": "RIVAL",
+                "role": "PLAYER",
+                "number": 4,
+                "confidence": {
+                    "score": null,
+                    "gap": null,
+                    "status": "KNOWN"
+                }
+            },
+            "state": {
+                "frame": 16,
+                "timestamp_ms": 533.3333333333334,
+                "x": 793,
+                "y": 268,
+                "radius": 7,
+                "dx": 0,
+                "dy": 0,
+                "distance": 0.0
+            }
+        },
+        {
+            "track_id": 5,
+            "identity": {
+                "team": "RIVAL",
+                "role": "PLAYER",
+                "number": 8,
+                "confidence": {
+                    "score": null,
+                    "gap": null,
+                    "status": "KNOWN"
+                }
+            },
+            "state": {
+                "frame": 16,
+                "timestamp_ms": 533.3333333333334,
+                "x": 667,
+                "y": 272,
+                "radius": 7,
+                "dx": 0,
+                "dy": 0,
+                "distance": 0.0
+            }
+        },
+        {
+            "track_id": 6,
+            "identity": {
+                "team": "RACING",
+                "role": "PLAYER",
+                "number": 10,
+                "confidence": {
+                    "score": null,
+                    "gap": null,
+                    "status": "KNOWN"
+                }
+            },
+            "state": {
+                "frame": 16,
+                "timestamp_ms": 533.3333333333334,
+                "x": 651,
+                "y": 292,
+                "radius": 7,
+                "dx": 0,
+                "dy": 0,
+                "distance": 0.0
+            }
+        },
+        {
+            "track_id": 7,
+            "identity": {
+                "team": "RACING",
+                "role": "PLAYER",
+                "number": 8,
+                "confidence": {
+                    "score": null,
+                    "gap": null,
+                    "status": "KNOWN"
+                }
+            },
+            "state": {
+                "frame": 16,
+                "timestamp_ms": 533.3333333333334,
+                "x": 567,
+                "y": 308,
+                "radius": 7,
+                "dx": 0,
+                "dy": 0,
+                "distance": 0.0
+            }
+        },
+        {
+            "track_id": 8,
+            "identity": {
+                "team": "RACING",
+                "role": "PLAYER",
+                "number": 5,
+                "confidence": {
+                    "score": null,
+                    "gap": null,
+                    "status": "KNOWN"
+                }
+            },
+            "state": {
+                "frame": 16,
+                "timestamp_ms": 533.3333333333334,
+                "x": 485,
+                "y": 312,
+                "radius": 7,
+                "dx": 0,
+                "dy": 0,
+                "distance": 0.0
+            }
+        },
+        {
+            "track_id": 9,
+            "identity": {
+                "team": "RIVAL",
+                "role": "PLAYER",
+                "number": 6,
+                "confidence": {
+                    "score": null,
+                    "gap": null,
+                    "status": "KNOWN"
+                }
+            },
+            "state": {
+                "frame": 16,
+                "timestamp_ms": 533.3333333333334,
+                "x": 711,
+                "y": 316,
+                "radius": 8,
+                "dx": 0,
+                "dy": 0,
+                "distance": 0.0
+            }
+        },
+        {
+            "track_id": 10,
+            "identity": {
+                "team": "RIVAL",
+                "role": "PLAYER",
+                "number": 9,
+                "confidence": {
+                    "score": null,
+                    "gap": null,
+                    "status": "KNOWN"
+                }
+            },
+            "state": {
+                "frame": 16,
+                "timestamp_ms": 533.3333333333334,
+                "x": 607,
+                "y": 354,
+                "radius": 7,
+                "dx": 0,
+                "dy": 0,
+                "distance": 0.0
+            }
+        },
+        {
+            "track_id": 11,
+            "identity": {
+                "team": "RIVAL",
+                "role": "GK",
+                "number": 1,
+                "confidence": {
+                    "score": null,
+                    "gap": null,
+                    "status": "KNOWN"
+                }
+            },
+            "state": {
+                "frame": 16,
+                "timestamp_ms": 533.3333333333334,
+                "x": 984,
+                "y": 357,
+                "radius": 7,
+                "dx": 0,
+                "dy": 2,
+                "distance": 2.0
+            }
+        },
+        {
+            "track_id": 12,
+            "identity": {
+                "team": "RACING",
+                "role": "GK",
+                "number": 1,
+                "confidence": {
+                    "score": null,
+                    "gap": null,
+                    "status": "KNOWN"
+                }
+            },
+            "state": {
+                "frame": 16,
+                "timestamp_ms": 533.3333333333334,
+                "x": 267,
+                "y": 359,
+                "radius": 6,
+                "dx": -2,
+                "dy": -2,
+                "distance": 2.8284271247461903
+            }
+        },
+        {
+            "track_id": 13,
+            "identity": {
+                "team": "RIVAL",
+                "role": "PLAYER",
+                "number": 7,
+                "confidence": {
+                    "score": null,
+                    "gap": null,
+                    "status": "KNOWN"
+                }
+            },
+            "state": {
+                "frame": 16,
+                "timestamp_ms": 533.3333333333334,
+                "x": 697,
+                "y": 364,
+                "radius": 7,
+                "dx": 0,
+                "dy": 0,
+                "distance": 0.0
+            }
+        },
+        {
+            "track_id": 14,
+            "identity": {
+                "team": "RACING",
+                "role": "PLAYER",
+                "number": 9,
+                "confidence": {
+                    "score": null,
+                    "gap": null,
+                    "status": "KNOWN"
+                }
+            },
+            "state": {
+                "frame": 16,
+                "timestamp_ms": 533.3333333333334,
+                "x": 653,
+                "y": 388,
+                "radius": 7,
+                "dx": 0,
+                "dy": 0,
+                "distance": 0.0
+            }
+        },
+        {
+            "track_id": 15,
+            "identity": {
+                "team": "RACING",
+                "role": "PLAYER",
+                "number": 4,
+                "confidence": {
+                    "score": null,
+                    "gap": null,
+                    "status": "KNOWN"
+                }
+            },
+            "state": {
+                "frame": 16,
+                "timestamp_ms": 533.3333333333334,
+                "x": 483,
+                "y": 406,
+                "radius": 7,
+                "dx": 0,
+                "dy": 0,
+                "distance": 0.0
+            }
+        },
+        {
+            "track_id": 16,
+            "identity": {
+                "team": "RACING",
+                "role": "PLAYER",
+                "number": 6,
+                "confidence": {
+                    "score": null,
+                    "gap": null,
+                    "status": "KNOWN"
+                }
+            },
+            "state": {
+                "frame": 16,
+                "timestamp_ms": 533.3333333333334,
+                "x": 547,
+                "y": 408,
+                "radius": 7,
+                "dx": 0,
+                "dy": 0,
+                "distance": 0.0
+            }
+        },
+        {
+            "track_id": 17,
+            "identity": {
+                "team": "RIVAL",
+                "role": "PLAYER",
+                "number": 3,
+                "confidence": {
+                    "score": null,
+                    "gap": null,
+                    "status": "KNOWN"
+                }
+            },
+            "state": {
+                "frame": 16,
+                "timestamp_ms": 533.3333333333334,
+                "x": 689,
+                "y": 434,
+                "radius": 7,
+                "dx": 0,
+                "dy": 0,
+                "distance": 0.0
+            }
+        },
+        {
+            "track_id": 18,
+            "identity": {
+                "team": "RIVAL",
+                "role": "PLAYER",
+                "number": 5,
+                "confidence": {
+                    "score": null,
+                    "gap": null,
+                    "status": "KNOWN"
+                }
+            },
+            "state": {
+                "frame": 16,
+                "timestamp_ms": 533.3333333333334,
+                "x": 797,
+                "y": 474,
+                "radius": 8,
+                "dx": 0,
+                "dy": 0,
+                "distance": 0.0
+            }
+        },
+        {
+            "track_id": 19,
+            "identity": {
+                "team": "RACING",
+                "role": "PLAYER",
+                "number": 11,
+                "confidence": {
+                    "score": null,
+                    "gap": null,
+                    "status": "KNOWN"
+                }
+            },
+            "state": {
+                "frame": 16,
+                "timestamp_ms": 533.3333333333334,
+                "x": 567,
+                "y": 530,
+                "radius": 7,
+                "dx": 0,
+                "dy": 0,
+                "distance": 0.0
+            }
+        },
+        {
+            "track_id": 20,
+            "identity": {
+                "team": "RACING",
+                "role": "PLAYER",
+                "number": 2,
+                "confidence": {
+                    "score": null,
+                    "gap": null,
+                    "status": "KNOWN"
+                }
+            },
+            "state": {
+                "frame": 16,
+                "timestamp_ms": 533.3333333333334,
+                "x": 495,
+                "y": 534,
+                "radius": 7,
+                "dx": 0,
+                "dy": 0,
+                "distance": 0.0
+            }
+        }
+    ]
+}

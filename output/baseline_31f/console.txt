@@ -1,0 +1,64 @@
+================================
+TRACKING 30 FRAMES
+================================
+Frame 01 | detecciones=23 | matches=22 | dist_total=6.83
+Frame 02 | detecciones=23 | matches=22 | dist_total=0.00
+Frame 03 | detecciones=23 | matches=22 | dist_total=0.00
+Frame 04 | detecciones=23 | matches=22 | dist_total=0.00
+Frame 05 | detecciones=23 | matches=22 | dist_total=0.00
+Frame 06 | detecciones=23 | matches=22 | dist_total=0.00
+Frame 07 | detecciones=23 | matches=22 | dist_total=0.00
+Frame 08 | detecciones=23 | matches=22 | dist_total=2.00
+Frame 09 | detecciones=23 | matches=22 | dist_total=2.00
+Frame 10 | detecciones=23 | matches=21 | dist_total=0.00
+Frame 11 | detecciones=23 | matches=22 | dist_total=0.00
+Frame 12 | detecciones=23 | matches=22 | dist_total=0.00
+Frame 13 | detecciones=23 | matches=21 | dist_total=4.83
+Frame 14 | detecciones=23 | matches=21 | dist_total=0.00
+Frame 15 | detecciones=23 | matches=21 | dist_total=0.00
+Frame 16 | detecciones=23 | matches=21 | dist_total=4.83
+Frame 17 | detecciones=23 | matches=21 | dist_total=4.00
+Frame 18 | detecciones=23 | matches=21 | dist_total=4.00
+Frame 19 | detecciones=23 | matches=22 | dist_total=2.00
+Frame 20 | detecciones=23 | matches=21 | dist_total=4.00
+Frame 21 | detecciones=22 | matches=21 | dist_total=2.00
+Frame 22 | detecciones=24 | matches=21 | dist_total=2.83
+Frame 23 | detecciones=23 | matches=21 | dist_total=0.00
+Frame 24 | detecciones=22 | matches=20 | dist_total=2.83
+Frame 25 | detecciones=22 | matches=20 | dist_total=2.83
+Frame 26 | detecciones=22 | matches=20 | dist_total=2.00
+Frame 27 | detecciones=22 | matches=20 | dist_total=2.00
+Frame 28 | detecciones=21 | matches=20 | dist_total=2.00
+Frame 29 | detecciones=21 | matches=21 | dist_total=4.83
+Frame 30 | detecciones=21 | matches=21 | dist_total=4.83
+
+================================
+RESULTADO
+================================
+Tracks iniciales: 22
+Mapa generado:
+C:\Users\locas\OneDrive\Escritorio\Claude\Juegos\FM24Analyzer\output\trajectory_30frames.jpg
+
+Distancia acumulada por track:
+ID 12 | RACING #01 | 33.31 px
+ID 11 | RIVAL  #01 | 16.49 px
+ID 19 | RACING #11 | 4.00 px
+ID 06 | RACING #10 | 2.83 px
+ID 09 | RIVAL  #06 | 2.00 px
+ID 14 | RACING #09 | 2.00 px
+ID 00 | RIVAL  #11 | 0.00 px
+ID 01 | RIVAL  #02 | 0.00 px
+ID 02 | RACING #03 | 0.00 px
+ID 03 | RACING #07 | 0.00 px
+ID 04 | RIVAL  #04 | 0.00 px
+ID 05 | RIVAL  #08 | 0.00 px
+ID 07 | RACING #08 | 0.00 px
+ID 08 | RACING #05 | 0.00 px
+ID 10 | RIVAL  #09 | 0.00 px
+ID 13 | RIVAL  #07 | 0.00 px
+ID 15 | RACING #04 | 0.00 px
+ID 16 | RACING #06 | 0.00 px
+ID 17 | RIVAL  #03 | 0.00 px
+ID 18 | RIVAL  #05 | 0.00 px
+ID 20 | RACING #02 | 0.00 px
+ID 21 | RIVAL  #10 | 0.00 px
