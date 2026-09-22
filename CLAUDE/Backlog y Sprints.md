@@ -119,7 +119,7 @@ Puntos de historia: **1, 2, 3, 5, 8**. Un ítem de más de 8 puntos se divide.
 | HU-05 | **Como** mánager **quiero** que la clasificación de equipo mire la camiseta y no el dorsal **para** que el Rival #10 no se pierda | RF-12, RNF-02 | 2 | ✅ Hecho — clasificación por anillo. Distribución 23×22, 7×21; `WRONG_BLOCK` 16 → 0 |
 | HU-41 | Detectar y excluir los tramos del video sin cancha (menús, preferencias) | RF-15 | 2 | ✅ Hecho — `src/detect_pitch_segments.py`, verificado contra el clip con el menú de Preferencias |
 | T-03 | Grabar el clip definitivo a 1920×1080 con el zoom fijo (cancha + panel) | D-09, RNF-10 | 1 | ✅ Hecho — `2026-09-22 18-50-52.mp4`, fichas de radio ~7,8 px |
-| HU-40 | Configuración por video: ROI de la cancha, radio de ficha y colores de Racing / rival | RF-02, RF-03, CU-02 | 3 | 🟡 En curso — `src/calibrate_video.py` mide ROI y radio automáticamente; falta que Toto confirme qué color es Racing en el clip definitivo |
+| HU-40 | Configuración por video: ROI de la cancha, radio de ficha y colores de Racing / rival | RF-02, RF-03, CU-02 | 3 | ✅ Entregado — `src/calibrate_video.py` mide ROI (1186×849), radio de ficha (7,3 px) y separa equipos por color (91 vs 215, separación 123). Toto confirmó: Racing = grupo claro |
 | HU-04 | **Como** mánager **quiero** etiquetar un dataset de referencia (≥ 5 frames con movimiento) **para** medir la exactitud real | CU-09, RF-72 | 5 | ⬜ Pendiente. Claude propone las marcas, Toto las valida |
 
 **Total:** 16 pts (11 ya entregados).
@@ -207,7 +207,7 @@ Puntos de historia: **1, 2, 3, 5, 8**. Un ítem de más de 8 puntos se divide.
 | Fijarse en FM24 si se puede ocultar la etiqueta de nombre en la vista 2D | Define HU-09 | 0 | ✅ — no se puede |
 | Grabar un clip de 1–2 min de **juego en movimiento** | HU-04, HU-08 | 0–1 | ✅ (T-02, T-03) |
 | Grabar el clip definitivo a 1920×1080 con zoom fijo | HU-40, T-03 | 1 | ✅ |
-| Confirmar qué color es Racing en el clip definitivo (blanco o azul oscuro según el partido) | HU-40 | 1 | ⬜ |
+| Confirmar qué color es Racing en el clip definitivo (blanco o azul oscuro según el partido) | HU-40 | 1 | ✅ — Racing = grupo claro (celeste/blanco), confirmado 22/09/2026 |
 | Validar las etiquetas del dataset de referencia | HU-04 | 1 | ⬜ |
 | Grabar un clip del segundo tiempo (los equipos cambiados de lado) | HU-15 | 3 | ⬜ |
 | Hacer la demo y la retro al cierre de cada sprint | Scrum | todos | — |

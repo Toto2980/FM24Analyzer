@@ -30,5 +30,8 @@
     }
   },
   "racing_is": "group_b",
-  "racing_is_reasoning": "group_b es el cluster claro (V medio 214.6, blanco/gris). El escudo de Racing en el marcador es celeste/blanco; el de All Boys, negro/dorado (oscuro). Coincide con el panel de alineación de Racing (9 de 11 camisetas claras). Verificado visualmente el 22/09/2026; pendiente de que Toto lo confirme mirando el partido."
+  "racing_is_reasoning": "group_b es el cluster claro (V medio 214.6, blanco/gris). El escudo de Racing en el marcador es celeste/blanco; el de All Boys, negro/dorado (oscuro). Coincide con el panel de alineación de Racing (9 de 11 camisetas claras).",
+  "confirmed_by": "Toto",
+  "confirmed_at": "2026-09-22",
+  "confirmation_note": "Toto confirmó viendo el marcador (All Boys 0-0 Racing). Heurística general que aportó: el fondo detrás del nombre/escudo del club en el marcador suele tener el mismo color que las fichas del equipo, no solo el escudo en sí — más confiable que mirar el escudo solo cuando la camiseta titular difiere del color principal del club (alternativa/suplente)."
 }
