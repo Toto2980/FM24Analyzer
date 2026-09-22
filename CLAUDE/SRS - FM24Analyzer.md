@@ -536,7 +536,7 @@ Viene de la idea original del proyecto: además de la cancha, la pantalla de FM2
 
 | ID | Requisito |
 |---|---|
-| RNF-10 | Video MP4 (H.264), 1280×720, 30 FPS, vista "2D Clásico" de FM24 con la cancha completa visible y **siempre el mismo zoom** (D-09). Otros formatos deben rechazarse con un mensaje claro (RF-01). Se podrán agregar formatos cuando se validen |
+| RNF-10 | Video MP4 (H.264), **1920×1080** (sin reescalar desde el monitor), 30 FPS, bitrate ≥ 12 Mbps, vista "2D Clásico" de FM24 con la cancha completa visible, el panel inferior visible y **siempre el mismo zoom** (D-09): el del clip `2026-09-22 18-30-38`, con las líneas de la cancha de x≈273 a x≈1006 a 1280 px de ancho. Objetivo: fichas de radio ≥ 8 px. Los clips a 1280×720 se aceptan solo para desarrollo. Otros formatos deben rechazarse con un mensaje claro (RF-01). Se podrán agregar formatos cuando se validen |
 
 ## 8.5. Portabilidad y entorno
 
@@ -648,7 +648,7 @@ Todas resueltas el 22/09/2026. La SRS queda aprobada como v1.0.
 | D-06 | ¿Qué largo tienen los clips que vas a analizar habitualmente: fragmentos o partido completo? | **Aceptado:** fragmentos de 1–5 min para el MVP |
 | D-07 | ¿La salida con / sin pelota (RF-57) es imprescindible para que el MVP te sirva? | **No.** El MVP muestra posiciones medias y estructura. Con / sin pelota es el primer ítem post-MVP |
 | D-08 | ~~¿Repositorio público o privado?~~ | **Resuelta 22/09:** público — github.com/Toto2980/FM24Analyzer |
-| D-09 | ¿Se graba siempre con la misma cámara y el mismo zoom ("2D Clásico")? | **Sí:** zoom fijo, el más grande que muestre la cancha entera (fichas grandes, dorsales legibles). Lo que sí cambia por partido son los colores de los equipos: se configuran por video |
+| D-09 | ¿Se graba siempre con la misma cámara y el mismo zoom ("2D Clásico")? | **Sí:** zoom fijo, el del clip 18-30-38 (cancha entera + panel inferior, que Toto usa para gritos y para ver energía y ánimo). Como a 720p las fichas quedan en radio ~6 px, se graba a 1920×1080 sin reescalar (radio ~9 px). Los colores de los equipos cambian por partido y se configuran por video |
 
 ---
 
