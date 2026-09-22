@@ -1,7 +1,7 @@
 # FM24Analyzer
 ## Especificación de Requerimientos de Software (SRS)
 
-**Versión:** 0.2 (borrador para revisión del cliente)
+**Versión:** 1.0 (aprobada por el cliente el 22/09/2026)
 **Fecha:** 22/09/2026
 **Cliente / usuario principal:** Tobias Locastro
 **Analista / desarrollo:** Tobias Locastro + Claude
@@ -19,6 +19,7 @@
 | Versión | Fecha | Cambio | Autor |
 |---|---|---|---|
 | 0.1 | 22/09/2026 | Primer borrador a partir del informe maestro y la auditoría de 31 frames | Claude |
+| 1.0 | 22/09/2026 | **Aprobada.** Resueltas D-01…D-09. La etiqueta de nombre no se puede desactivar ⇒ RF-32 (coast mode) pasa a M. Zoom 2D fijo con fichas grandes (RNF-10) | Toto / Claude |
 | 0.2 | 22/09/2026 | Equipo propio = Racing. Nuevo módulo INT (lectura de la interfaz de FM24) tomado de la idea original del proyecto (`Analizar20de20Manager.md`). RF-15 (descartar frames sin partido) por evidencia del clip nuevo. D-08 resuelta: repo público | Claude |
 
 ## Cómo leer este documento
@@ -30,7 +31,7 @@
   - **S**hould: importante, pero no bloquea el MVP.
   - **C**ould: deseable.
   - **W**on't: fuera de alcance en esta versión.
-- Los valores marcados **[A CONFIRMAR]** son propuestas del analista. El cliente tiene que confirmarlos o cambiarlos antes de aprobar la versión 1.0 (ver §12).
+- Los valores que en v0.x figuraban como **[A CONFIRMAR]** fueron aceptados por el cliente en la v1.0 (ver §12). Se conserva la marca para saber cuáles son propuestas del analista y no mediciones.
 - "Debe" indica obligación. "Puede" indica opción. No se usan "debería", "idealmente" ni "aproximadamente" dentro de un requerimiento.
 
 ---
@@ -78,7 +79,7 @@ FM24Analyzer es una aplicación **local** para Windows. Recibe una grabación de
 |---|---|
 | **Ficha / token** | Círculo que representa a un jugador en la vista 2D de FM24. Radio observado: 7–8 px a 1280×720 |
 | **Dorsal** | Número dibujado dentro de la ficha |
-| **Etiqueta de nombre** | Rótulo con el apellido que FM24 dibuja sobre la ficha del jugador que tiene la pelota (ej. "Miranda") |
+| **Etiqueta de nombre** | Rótulo con el apellido que FM24 dibuja sobre la ficha del jugador que tiene la pelota (ej. "Miranda"). **No se puede desactivar**: siempre hay 1 o 2 fichas con etiqueta, y en el saque inicial todas la tienen. Al usuario le sirve para saber quién es quién mientras mira el partido |
 | **ROI** | *Region of Interest*: rectángulo de la imagen que corresponde a la cancha |
 | **Frame** | Imagen individual del video. A 30 FPS dura 33,3 ms |
 | **Transición** | Par de frames consecutivos (n-1 → n). N frames generan N-1 transiciones |
@@ -425,7 +426,7 @@ Formato: **ID · Prioridad · Requisito · Criterio de verificación**.
 |---|---|---|---|
 | RF-30 | M | El sistema debe asociar detecciones a tracks en cada transición con el algoritmo húngaro, restringido por grupo de asociación y por gating | Test unitario de `assign_tracks` |
 | RF-31 | M | Un track sin match debe conservar su identidad y registrar cuántos frames seguidos lleva sin match | Campo `missed_streak` en la salida |
-| RF-32 | S | Un track sin match debe poder mantenerse con posición estimada (**coast mode**) durante un máximo de `MAX_COAST_FRAMES` frames. Las posiciones estimadas deben marcarse como `estimated` | Test sobre una oclusión conocida (Racing #10, frames 24–30) |
+| RF-32 | M | Un track sin match debe poder mantenerse con posición estimada (**coast mode**) durante un máximo de `MAX_COAST_FRAMES` frames. Las posiciones estimadas deben marcarse como `estimated` | Test sobre una oclusión conocida (Racing #10, frames 24–30) |
 | RF-33 | S | Un track perdido más de `MAX_COAST_FRAMES` frames debe poder **reidentificarse** por grupo + dorsal cuando reaparece | Test con una reaparición provocada |
 | RF-34 | M | El sistema debe ser determinista: mismo video + misma configuración ⇒ salida idéntica | RNF-07 |
 
@@ -529,11 +530,13 @@ Viene de la idea original del proyecto: además de la cancha, la pantalla de FM2
 |---|---|
 | RNF-09 | En la notebook del usuario, el sistema debe procesar 1 minuto de video (1800 frames) en ≤ 5 minutos [A CONFIRMAR] |
 
+| RNF-20 | **Videos largos (30+ min).** El sistema debe procesar el video en streaming, con memoria constante: no se carga el video entero ni se guarda un JSON por frame. Debe poder analizar a una frecuencia configurable (`analysis_fps`, por defecto 10) y reanudar un análisis cortado desde el último punto guardado. Medición del 22/09: detección 51 ms/frame y lectura 5 ms/frame ⇒ 30 min a 30 fps ≈ 50 min; a 10 fps ≈ 20 min; en paralelo por tramos (12 núcleos) se estima ≈ 5 min [A MEDIR] |
+
 ## 8.4. Entrada soportada
 
 | ID | Requisito |
 |---|---|
-| RNF-10 | Video MP4 (H.264), 1280×720, 30 FPS, vista 2D de FM24 con la cancha completa visible y sin zoom. Otros formatos deben rechazarse con un mensaje claro (RF-01). Se podrán agregar formatos cuando se validen |
+| RNF-10 | Video MP4 (H.264), 1280×720, 30 FPS, vista "2D Clásico" de FM24 con la cancha completa visible y **siempre el mismo zoom** (D-09). Otros formatos deben rechazarse con un mensaje claro (RF-01). Se podrán agregar formatos cuando se validen |
 
 ## 8.5. Portabilidad y entorno
 
@@ -579,7 +582,7 @@ Viene de la idea original del proyecto: además de la cancha, la pantalla de FM2
 | S-01 | Los dos equipos usan colores distinguibles entre sí y del arquero | Hace falta calibración por partido (CU-02) o una regla adicional |
 | S-02 | El usuario graba en vista 2D con la cancha completa | El sistema rechaza el video |
 | S-03 | La interfaz de FM24 no cambia entre partidos de forma relevante | Se recalibra el ROI (CU-02) |
-| S-04 | La etiqueta de nombre se puede desactivar en las opciones del juego o su efecto se puede tratar con coast mode | Si no se puede desactivar, RF-13 y RF-32 pasan a ser críticos |
+| S-04 | ~~La etiqueta de nombre se puede desactivar~~ **Falso (22/09):** no se puede desactivar | RF-13 y RF-32 son críticos (M) |
 
 ---
 
@@ -631,21 +634,21 @@ El MVP se considera **aceptado** cuando se cumplen todos estos puntos:
 
 ---
 
-# 12. Decisiones pendientes del cliente
+# 12. Decisiones del cliente
 
-La versión 1.0 de esta SRS no se aprueba hasta resolver estos puntos:
+Todas resueltas el 22/09/2026. La SRS queda aprobada como v1.0.
 
 | # | Pregunta | Propuesta del analista |
 |---|---|---|
-| D-01 | ¿Los umbrales de exactitud RNF-01 a RNF-05 son razonables para vos? | Los valores de §8.1 |
-| D-02 | ¿Qué tiempo de procesamiento es aceptable (RNF-09)? | ≤ 5 min por minuto de video |
-| D-03 | ¿Se puede desactivar la etiqueta de nombre en la vista 2D de FM24? | Verificarlo en el juego. Si se puede, el requisito es grabar sin etiqueta (RNF-10) |
-| D-04 | ¿Cómo definís "línea defensiva" para la altura del bloque (RF-51)? | Los 4 jugadores de campo más retrasados |
-| D-05 | ¿Qué dimensiones de cancha usamos (RF-41)? | 105 × 68 m |
-| D-06 | ¿Qué largo tienen los clips que vas a analizar habitualmente: fragmentos o partido completo? | Fragmentos de 1–5 min para el MVP |
-| D-07 | ¿La salida con / sin pelota (RF-57) es imprescindible para que el MVP te sirva? | No para el MVP. Primer ítem post-MVP |
+| D-01 | ¿Los umbrales de exactitud RNF-01 a RNF-05 son razonables para vos? | **Aceptado:** los valores de §8.1 |
+| D-02 | ¿Qué tiempo de procesamiento es aceptable (RNF-09)? | **Aceptado:** ≤ 5 min por minuto de video |
+| D-03 | ¿Se puede desactivar la etiqueta de nombre en la vista 2D de FM24? | **No se puede.** Siempre hay 1–2 jugadores con etiqueta y al usuario le sirve verla. Se resuelve por software (RF-13, RF-32) |
+| D-04 | ¿Cómo definís "línea defensiva" para la altura del bloque (RF-51)? | **Aceptado:** los 4 jugadores de campo más retrasados |
+| D-05 | ¿Qué dimensiones de cancha usamos (RF-41)? | **Aceptado:** 105 × 68 m |
+| D-06 | ¿Qué largo tienen los clips que vas a analizar habitualmente: fragmentos o partido completo? | **Aceptado:** fragmentos de 1–5 min para el MVP |
+| D-07 | ¿La salida con / sin pelota (RF-57) es imprescindible para que el MVP te sirva? | **No.** El MVP muestra posiciones medias y estructura. Con / sin pelota es el primer ítem post-MVP |
 | D-08 | ~~¿Repositorio público o privado?~~ | **Resuelta 22/09:** público — github.com/Toto2980/FM24Analyzer |
-| D-09 | ¿Se graba siempre con la misma cámara y el mismo zoom ("2D Clásico")? | Sí: fijar un zoom y no cambiarlo. Cambia el tamaño de las fichas y el recorte de la cancha |
+| D-09 | ¿Se graba siempre con la misma cámara y el mismo zoom ("2D Clásico")? | **Sí:** zoom fijo, el más grande que muestre la cancha entera (fichas grandes, dorsales legibles). Lo que sí cambia por partido son los colores de los equipos: se configuran por video |
 
 ---
 

@@ -83,7 +83,18 @@ Puntos de historia: **1, 2, 3, 5, 8**. Un ítem de más de 8 puntos se divide.
 
 # 4. Plan de sprints hasta el MVP
 
-## Sprint 0 — Proceso y fundaciones (en curso)
+## Cierre del Sprint 0 (22/09/2026)
+
+- **Entregado:** SRS v1.0 aprobada, tablero, repo público en GitHub, tag `v0.0.1`.
+- **Decisiones:** equipo propio = Racing; zoom 2D fijo con fichas grandes; la etiqueta de nombre no se puede sacar, así que coast mode (HU-09) pasa a obligatorio; el MVP no separa con / sin pelota.
+- **Cambios al plan:**
+  - Entran al Sprint 1 HU-40 (configuración por video), HU-41 (excluir menús) y T-03 (clip definitivo).
+  - HU-06 y HU-07 pasan al Sprint 2.
+  - Se agrega HU-45 (videos largos, RNF-20) al Sprint 3.
+- **Retro:** el clip grabado mezcló menús y otro zoom con el partido. Las condiciones de grabación tienen que estar escritas antes de grabar (RNF-10).
+- **Desde ahora:** el tablero es la fuente viva del estado. Este archivo guarda el plan y los cierres de sprint.
+
+## Sprint 0 — Proceso y fundaciones (cerrado)
 
 **Objetivo:** que el proyecto tenga plano (SRS), tablero y repositorio.
 **Entregable:** SRS v1.0 aprobada, repo git con `v0.0.1`.
