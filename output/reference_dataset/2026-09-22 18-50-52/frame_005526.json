@@ -1,0 +1,337 @@
+{
+  "video": "videos\\2026-09-22 18-50-52.mp4",
+  "frame": 5526,
+  "timestamp_s": 184.2,
+  "detections": [
+    {
+      "x": 413,
+      "y": 852,
+      "radius": 5,
+      "team_v": 216.0,
+      "team": "RACING",
+      "dorsal": null,
+      "validated": false,
+      "index": 1
+    },
+    {
+      "x": 639,
+      "y": 468,
+      "radius": 9,
+      "team_v": 253.0,
+      "team": "RACING",
+      "dorsal": null,
+      "validated": false,
+      "index": 2
+    },
+    {
+      "x": 983,
+      "y": 548,
+      "radius": 8,
+      "team_v": 217.5,
+      "team": "RACING",
+      "dorsal": null,
+      "validated": false,
+      "index": 3
+    },
+    {
+      "x": 997,
+      "y": 372,
+      "radius": 9,
+      "team_v": 216.0,
+      "team": "RACING",
+      "dorsal": null,
+      "validated": false,
+      "index": 4
+    },
+    {
+      "x": 1173,
+      "y": 546,
+      "radius": 8,
+      "team_v": 217.5,
+      "team": "RACING",
+      "dorsal": null,
+      "validated": false,
+      "index": 5
+    },
+    {
+      "x": 1247,
+      "y": 696,
+      "radius": 8,
+      "team_v": 216.0,
+      "team": "RACING",
+      "dorsal": null,
+      "validated": false,
+      "index": 6
+    },
+    {
+      "x": 1285,
+      "y": 528,
+      "radius": 7,
+      "team_v": 215.0,
+      "team": "RACING",
+      "dorsal": null,
+      "validated": false,
+      "index": 7
+    },
+    {
+      "x": 1333,
+      "y": 212,
+      "radius": 7,
+      "team_v": 219.0,
+      "team": "RACING",
+      "dorsal": null,
+      "validated": false,
+      "index": 8
+    },
+    {
+      "x": 1407,
+      "y": 452,
+      "radius": 8,
+      "team_v": 210.0,
+      "team": "RACING",
+      "dorsal": null,
+      "validated": false,
+      "index": 9
+    },
+    {
+      "x": 1413,
+      "y": 270,
+      "radius": 8,
+      "team_v": 212.0,
+      "team": "RACING",
+      "dorsal": null,
+      "validated": false,
+      "index": 10
+    },
+    {
+      "x": 1429,
+      "y": 584,
+      "radius": 8,
+      "team_v": 216.0,
+      "team": "RACING",
+      "dorsal": null,
+      "validated": false,
+      "index": 11
+    },
+    {
+      "x": 1429,
+      "y": 496,
+      "radius": 8,
+      "team_v": 217.0,
+      "team": "RACING",
+      "dorsal": null,
+      "validated": false,
+      "index": 12
+    },
+    {
+      "x": 395,
+      "y": 460,
+      "radius": 10,
+      "team_v": 135.5,
+      "team": "RIVAL",
+      "dorsal": null,
+      "validated": false,
+      "index": 13
+    },
+    {
+      "x": 1087,
+      "y": 362,
+      "radius": 7,
+      "team_v": 124.5,
+      "team": "RIVAL",
+      "dorsal": null,
+      "validated": false,
+      "index": 14
+    },
+    {
+      "x": 1203,
+      "y": 498,
+      "radius": 7,
+      "team_v": 104.0,
+      "team": "RIVAL",
+      "dorsal": null,
+      "validated": false,
+      "index": 15
+    },
+    {
+      "x": 1215,
+      "y": 712,
+      "radius": 10,
+      "team_v": 91.0,
+      "team": "RIVAL",
+      "dorsal": null,
+      "validated": false,
+      "index": 16
+    },
+    {
+      "x": 1231,
+      "y": 676,
+      "radius": 9,
+      "team_v": 101.0,
+      "team": "RIVAL",
+      "dorsal": null,
+      "validated": false,
+      "index": 17
+    },
+    {
+      "x": 1241,
+      "y": 712,
+      "radius": 7,
+      "team_v": 93.5,
+      "team": "RIVAL",
+      "dorsal": null,
+      "validated": false,
+      "index": 18
+    },
+    {
+      "x": 1263,
+      "y": 680,
+      "radius": 7,
+      "team_v": 108.5,
+      "team": "RIVAL",
+      "dorsal": null,
+      "validated": false,
+      "index": 19
+    },
+    {
+      "x": 1265,
+      "y": 284,
+      "radius": 7,
+      "team_v": 4.0,
+      "team": "RIVAL",
+      "dorsal": null,
+      "validated": false,
+      "index": 20
+    },
+    {
+      "x": 1271,
+      "y": 662,
+      "radius": 6,
+      "team_v": 121.5,
+      "team": "RIVAL",
+      "dorsal": null,
+      "validated": false,
+      "index": 21
+    },
+    {
+      "x": 1279,
+      "y": 712,
+      "radius": 10,
+      "team_v": 94.0,
+      "team": "RIVAL",
+      "dorsal": null,
+      "validated": false,
+      "index": 22
+    },
+    {
+      "x": 1283,
+      "y": 678,
+      "radius": 4,
+      "team_v": 101.0,
+      "team": "RIVAL",
+      "dorsal": null,
+      "validated": false,
+      "index": 23
+    },
+    {
+      "x": 1309,
+      "y": 676,
+      "radius": 10,
+      "team_v": 102.0,
+      "team": "RIVAL",
+      "dorsal": null,
+      "validated": false,
+      "index": 24
+    },
+    {
+      "x": 1333,
+      "y": 410,
+      "radius": 7,
+      "team_v": 117.5,
+      "team": "RIVAL",
+      "dorsal": null,
+      "validated": false,
+      "index": 25
+    },
+    {
+      "x": 1335,
+      "y": 514,
+      "radius": 6,
+      "team_v": 129.0,
+      "team": "RIVAL",
+      "dorsal": null,
+      "validated": false,
+      "index": 26
+    },
+    {
+      "x": 1381,
+      "y": 270,
+      "radius": 6,
+      "team_v": 123.0,
+      "team": "RIVAL",
+      "dorsal": null,
+      "validated": false,
+      "index": 27
+    },
+    {
+      "x": 1395,
+      "y": 562,
+      "radius": 7,
+      "team_v": 118.0,
+      "team": "RIVAL",
+      "dorsal": null,
+      "validated": false,
+      "index": 28
+    },
+    {
+      "x": 1407,
+      "y": 574,
+      "radius": 6,
+      "team_v": 116.5,
+      "team": "RIVAL",
+      "dorsal": null,
+      "validated": false,
+      "index": 29
+    },
+    {
+      "x": 1417,
+      "y": 428,
+      "radius": 7,
+      "team_v": 131.0,
+      "team": "RIVAL",
+      "dorsal": null,
+      "validated": false,
+      "index": 30
+    },
+    {
+      "x": 1429,
+      "y": 476,
+      "radius": 7,
+      "team_v": 132.0,
+      "team": "RIVAL",
+      "dorsal": null,
+      "validated": false,
+      "index": 31
+    },
+    {
+      "x": 1483,
+      "y": 484,
+      "radius": 9,
+      "team_v": 3.0,
+      "team": "RIVAL",
+      "dorsal": null,
+      "validated": false,
+      "index": 32
+    },
+    {
+      "x": 1523,
+      "y": 462,
+      "radius": 10,
+      "team_v": 141.0,
+      "team": "RIVAL",
+      "dorsal": null,
+      "validated": false,
+      "index": 33
+    }
+  ]
+}

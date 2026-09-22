@@ -10,6 +10,7 @@ output/*
 output/baseline_31f/*.jpg
 !output/pitch_segments/
 !output/calibration/
+!output/reference_dataset/
 
 runs/
 __pycache__/
