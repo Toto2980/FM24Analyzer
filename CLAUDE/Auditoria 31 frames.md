@@ -135,3 +135,20 @@ distribución esperada: 23×22, 7×21
   La decisión depende de si en un tramo con movimiento la etiqueta aparece seguido.
 - El falso GK sobre el arco del área.
 - Extender a 100 transiciones **con movimiento real** antes de sacar conclusiones sobre el gating.
+
+---
+
+# 7. Resultado de la corrección HU-05 (22/09/2026)
+
+Se aplicó **solo** la clasificación por anillo (`ring_median_v` en `tracking_core.py`, radios 4,5–6,5 px, umbral V = 180).
+
+| | Antes | Después |
+|---|---|---|
+| Distribución | 12×22, 13×21, 5×20 | **23×22, 7×21** |
+| Pérdidas | 23 (T21 ×16, T06 ×7) | **7** (T06 ×7) |
+| `WRONG_BLOCK` | 16 | **0** |
+| V en el anillo, Racing (303 fichas) | — | 82 – 89,5 |
+| V en el anillo, Rival (310 fichas) | — | 231 – 244,5 |
+
+- La regresión (`tests/test_regression_31f.py`) pasa: ningún match de la línea base se perdió ni cambió de posición.
+- Queda la pérdida por la etiqueta de nombre (T06), que se ataca en HU-09 (coast mode).

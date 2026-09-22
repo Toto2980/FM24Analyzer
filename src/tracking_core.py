@@ -23,10 +23,32 @@ FIELD_HEIGHT = 623
 MAX_DISTANCE = 15.0
 LARGE_COST = 10000.0
 
+# Clasificación de equipo (HU-05). Radios en px, medidos con el
+# zoom de partido_prueba.mp4 (fichas de radio 7–8 px).
+RING_INNER = 4.5
+RING_OUTER = 6.5
+TEAM_V_THRESHOLD = 180
+
 
 # ==================================================
 # DETECTOR
 # ==================================================
+
+def ring_median_v(value, cx, cy):
+    """Mediana de V en el anillo RING_INNER–RING_OUTER alrededor de (cx, cy)."""
+
+    reach = int(np.ceil(RING_OUTER))
+    height, width = value.shape
+
+    x1, x2 = max(0, int(cx) - reach), min(width, int(cx) + reach + 1)
+    y1, y2 = max(0, int(cy) - reach), min(height, int(cy) + reach + 1)
+
+    ys, xs = np.mgrid[y1:y2, x1:x2]
+    dist = np.hypot(xs - cx, ys - cy)
+    ring = (dist >= RING_INNER) & (dist <= RING_OUTER)
+
+    return np.median(value[y1:y2, x1:x2][ring])
+
 
 def detect_players(frame):
 
@@ -53,7 +75,6 @@ def detect_players(frame):
         cv2.COLOR_BGR2HSV
     )
 
-    saturation = hsv[:, :, 1]
     value = hsv[:, :, 2]
 
 
@@ -289,73 +310,18 @@ def detect_players(frame):
             continue
 
 
-        local_x = (
-            detection["x"]
-            - X_FIELD
+        # HU-05: el color se mide en un anillo que excluye el
+        # dorsal. El cuadrado central caía sobre los dígitos y
+        # clasificaba mal al Rival #10 (Auditoría 31 frames, §3).
+        median_v = ring_median_v(
+            value,
+            detection["x"] - X_FIELD,
+            detection["y"] - Y_FIELD
         )
 
-        local_y = (
-            detection["y"]
-            - Y_FIELD
-        )
+        detection["team_v"] = float(median_v)
 
-        radius = detection["radius"]
-
-
-        x1 = max(
-            0,
-            int(
-                local_x
-                - radius * 0.5
-            )
-        )
-
-        x2 = min(
-            FIELD_WIDTH,
-            int(
-                local_x
-                + radius * 0.5
-            )
-        )
-
-        y1 = max(
-            0,
-            int(
-                local_y
-                - radius * 0.5
-            )
-        )
-
-        y2 = min(
-            FIELD_HEIGHT,
-            int(
-                local_y
-                + radius * 0.5
-            )
-        )
-
-
-        patch_s = saturation[
-            y1:y2,
-            x1:x2
-        ]
-
-        patch_v = value[
-            y1:y2,
-            x1:x2
-        ]
-
-
-        median_s = np.median(
-            patch_s
-        )
-
-        median_v = np.median(
-            patch_v
-        )
-
-
-        if median_v > 180:
+        if median_v > TEAM_V_THRESHOLD:
 
             detection["team"] = "RIVAL"
 
@@ -493,3 +459,74 @@ def assign_tracks(
 
 
     return matches
+
+
+# ==================================================
+# LOOP DE TRACKING REUTILIZABLE
+# ==================================================
+
+def run_tracking(video_path, frame0_players, total_frames):
+    """
+    Reproduce el loop de batch_tracker.py sin escribir archivos.
+
+    Devuelve una lista, un elemento por frame procesado (1..N):
+    {"frame": n, "detections": int, "matches": {track_id: (x, y)}}
+    """
+
+    tracks = {
+        player["track_id"]: {
+            "track_id": player["track_id"],
+            "identity": player["identity"],
+            "state": {
+                "x": player["state"]["x"],
+                "y": player["state"]["y"]
+            }
+        }
+        for player in frame0_players
+    }
+
+    video = cv2.VideoCapture(str(video_path))
+
+    if not video.isOpened():
+        raise RuntimeError(f"No se pudo abrir el video: {video_path}")
+
+    success, _ = video.read()
+
+    if not success:
+        raise RuntimeError("No se pudo leer Frame 0.")
+
+    results = []
+
+    for frame_number in range(1, total_frames + 1):
+
+        success, frame = video.read()
+
+        if not success:
+            break
+
+        detections = detect_players(frame)
+        matches = assign_tracks(tracks, detections)
+
+        frame_matches = {}
+
+        for track, detection, _ in matches:
+
+            track["state"] = {
+                "x": int(detection["x"]),
+                "y": int(detection["y"])
+            }
+
+            frame_matches[track["track_id"]] = (
+                int(detection["x"]),
+                int(detection["y"])
+            )
+
+        results.append({
+            "frame": frame_number,
+            "detections": len(detections),
+            "matches": frame_matches
+        })
+
+    video.release()
+
+    return results
